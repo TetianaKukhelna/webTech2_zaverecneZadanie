@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="wt94.fei.stuba.sk" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="wt94.fei.stuba.sk">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/zaverecneZadanie" local="$PROJECT_DIR$" web="/zaverecneZadanie" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

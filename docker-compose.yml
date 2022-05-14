@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    network_mode: host
+    environment:
+      MYSQL_DATABASE: 'db'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'xkukhelna'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'Tina246426-'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_TCP_PORT: 3666
+
+    volumes:
+      - my-db:/var/lib/mysql
+# Names our volume
+volumes:
+  my-db:
