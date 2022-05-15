@@ -1,1 +1,2 @@
 # webTech2_zaverecneZadanie
+cauko kakavko
