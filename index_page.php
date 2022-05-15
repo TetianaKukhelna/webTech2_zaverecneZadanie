@@ -21,7 +21,7 @@ require_once('./templates/_navigation.php')
         </button>
     </li>
 
-    <p>pipik</p>
+    <p>pipik 2 </p>
 
 </ul>
 </body>
