@@ -20,9 +20,9 @@ require_once('./templates/_navigation.php')
             Can be some data
         </button>
     </li>
-
-    <p>pipik 3 </p>
-
 </ul>
+
+<iframe src="https://i.simmer.io/@Kubinel/skakacka-2" style="width:960px;height:600px"></iframe>
+
 </body>
 </html>
