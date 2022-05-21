@@ -22,6 +22,8 @@
 <body>
     <h1>OH</h1>
 
+<?php echo exec("octave-cli --eval '3+7'") ?>
+
 
 
 </body>
