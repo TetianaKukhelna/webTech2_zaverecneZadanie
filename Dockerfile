@@ -29,6 +29,7 @@ RUN apt-get update && apt-get upgrade -y \
     wget \
     unzip \
     octave \
+    liboctave-dev \
     zlib1g-dev \
     && docker-php-ext-install -j$(nproc) \
     bcmath \
@@ -43,6 +44,7 @@ RUN apt-get update && apt-get upgrade -y \
     pgsql \
     soap \
     xsl \
+    && octave-cli --eval "pkg install -forge control" \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
     && PHP_OPENSSL=yes docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
