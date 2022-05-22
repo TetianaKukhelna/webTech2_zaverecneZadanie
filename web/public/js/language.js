@@ -34,7 +34,7 @@ function sk(){
     setText();
 }
 
-var lang = sk_sk;
+var lang = en_us;
 
 function setText(){
     document.title = lang.heading;
@@ -46,4 +46,6 @@ function setText(){
     document.getElementById("_output").innerHTML = lang.output;
 }
 
+document.getElementById("EN").style.backgroundColor = "white";
+document.getElementById("EN").style.color = "black";
 setText();
