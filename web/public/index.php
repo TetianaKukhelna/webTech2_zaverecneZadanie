@@ -78,8 +78,6 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
     </div>
 </section>
 
-
-
 <script src="./js/language.js"></script>
 <script src="./js/script.js"></script>
 </body>
