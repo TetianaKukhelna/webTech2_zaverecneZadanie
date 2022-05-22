@@ -2,20 +2,19 @@
 use App\Controller\PersonController;
 include '../app/vendor/autoload.php';
 
-
-if ((isset($_POST['height']) && !empty($_POST['height'])) && (isset($_POST['name']) && !empty($_POST['name']))) {
+if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['name']) && !empty($_POST['name']))) {
     $output = "";
-    echo exec('octave-cli --eval '.'"pkg load control;'.$_POST['height'].'"' , $output);
+    echo exec('octave-cli --eval '.'"pkg load control;'.$_POST['command'].'"' , $output);
     $output = implode("\n",$output);
+
 
     $log = new PersonController();
     $logId = $log->insertSimulation($_POST['name'], $_POST['command'], "SUCCESS", "NONE");
-    $file = fopen("log.csv", 'a');
+    $file = fopen("log.csv", 'w');
     $array = $log->getSimulation($logId);
     $array = array_unique($array);
     fputcsv($file, array_keys($array), ';');
     fputcsv($file, $array, ';');
-
 }
 
 ?>
@@ -65,9 +64,9 @@ if ((isset($_POST['height']) && !empty($_POST['height'])) && (isset($_POST['name
                             if(isset($output) && !empty($output)){?>
                                 <div class="form-outline form-white mb-4">
                                     <textarea class="form-control form-control-lg" id="output" name="output"> <?php echo $output;?> </textarea>
-
-                                <label id="_output" class="form-label" for="output">Output</label>
-                            </div>
+                                    <label id="_output" class="form-label" for="output">Output</label>
+                                </div>
+                                <a href="log.csv" download><button id="_download" class="btn btn-outline-light btn-lg px-5" type="button">Download log.csv</button></a>
                         <?php
                         }
                         ?>
