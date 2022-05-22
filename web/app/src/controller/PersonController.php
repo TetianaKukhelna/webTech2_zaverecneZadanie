@@ -39,7 +39,6 @@ class PersonController
         $stmt = $this->conn->prepare("SELECT id, username, created_at, command, status, error_log FROM logs WHERE id = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-        //$stmt->setFetchMode(PDO::FETCH_CLASS, "App\Model\Person");
         $log = $stmt->fetch();
         var_dump($log);
         return $log;

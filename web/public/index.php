@@ -15,6 +15,7 @@ if ((isset($_POST['height']) && !empty($_POST['height'])) && (isset($_POST['name
     $array = array_unique($array);
     fputcsv($file, array_keys($array), ';');
     fputcsv($file, $array, ';');
+
 }
 
 ?>
