@@ -1,16 +1,12 @@
 <?php
-
 use App\Controller\PersonController;
 include '../app/vendor/autoload.php';
 
-$output = null;
-if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['name']) && !empty($_POST['name']))) {
-    $output = "";
-//    echo exec('octave-cli --eval "m1 = 2500; m2 = 320;k1 = 80000; k2 = 500000;b1 = 350; b2 = 15020;pkg load control;A=[0 1 0 0;-(b1*b2)/(m1*m2) 0 ((b1/m1)*((b1/m1)+(b1/m2)+(b2/m2)))-(k1/m1) -(b1/m1);b2/m2 0 -((b1/m1)+(b1/m2)+(b2/m2)) 1;k2/m2 0 -((k1/m1)+(k1/m2)+(k2/m2)) 0];B=[0 0;1/m1 (b1*b2)/(m1*m2);0 -(b2/m2);(1/m1)+(1/m2) -(k2/m2)];C=[0 0 1 0]; D=[0 0];Aa = [[A,[0 0 0 0]\'];[C, 0]];Ba = [B;[0 0]];Ca = [C,0]; Da = D;K = [0 2.3e6 5e8 0 8e6];sys = ss(Aa-Ba(:,1)*K,Ba,Ca,Da);t = 0:0.01:5;r =0.1;initX1=0; initX1d=0;initX2=0; initX2d=0;[y,t,x]=lsim(sys*[0;1],r*ones(size(t)),t,[initX1;initX1d;initX2;initX2d;0]);save out.txt y"', $output);
-    exec('octave-cli --eval '.$_POST['command'], $output);
-//    exec($_POST['height'], $output);
 
-    var_dump($output);
+if ((isset($_POST['height']) && !empty($_POST['height'])) && (isset($_POST['name']) && !empty($_POST['name']))) {
+    $output = "";
+    echo exec('octave-cli --eval '.'"pkg load control;'.$_POST['height'].'"' , $output);
+    $output = implode("\n",$output);
 
     $log = new PersonController();
     $logId = $log->insertSimulation($_POST['name'], $_POST['command'], "SUCCESS", "NONE");
@@ -20,8 +16,6 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
     fputcsv($file, array_keys($array), ';');
     fputcsv($file, $array, ';');
 }
-
-
 
 ?>
 
@@ -66,10 +60,10 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
 
                         </form>
                         <div class="mb-md-5 mt-md-4 pb-3">
-                        <?php
-                        if(isset($output) && !empty($output)){?>
-                            <div class="form-outline form-white mb-4">
-                                <textarea class="form-control form-control-lg" id="output" name="output"> <?php echo $output[0]?> </textarea>
+                            <?php
+                            if(isset($output) && !empty($output)){?>
+                                <div class="form-outline form-white mb-4">
+                                    <textarea class="form-control form-control-lg" id="output" name="output"> <?php echo $output;?> </textarea>
 
                                 <label id="_output" class="form-label" for="output">Output</label>
                             </div>
