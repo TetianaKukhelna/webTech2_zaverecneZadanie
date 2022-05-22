@@ -34,30 +34,23 @@ class PersonController
         return $people;
     }
 
-    public function getPerson($id)
+    public function getSimulation($id)
     {
-        $stmt = $this->conn->prepare("select osoby.*, count(p.placing) as gold_count from osoby left outer join (select * from umiestnenia where placing=1) p on p.person_id = osoby.id where osoby.id = :personId;");
-        $stmt->bindParam(":personId", $id, PDO::PARAM_INT);
+        $stmt = $this->conn->prepare("SELECT id, username, created_at, command, status, error_log FROM logs WHERE id = :id");
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_CLASS, "App\Model\Person");
-        $person = $stmt->fetch();
-
-        $stmt = $this->conn->prepare("select umiestnenia.*, city from umiestnenia join oh on umiestnenia.oh_id = oh.id where person_id = :personId;");
-        $stmt->bindParam(":personId", $person->getId(), PDO::PARAM_INT);
-        $stmt->execute();
-        $placements = $stmt->fetchAll(PDO::FETCH_CLASS, "App\Model\Placement");
-        $person->setPlacements($placements);
-
-        return $person;
+        $log = $stmt->fetch();
+        var_dump($log);
+        return $log;
     }
 
-    public function insertPerson(Person $person)
+    public function insertSimulation($username, $command, $status, $error_log): int
     {
-        $stmt = $this->conn->prepare("insert into osoby (name, surname, birth_day, birth_place, birth_country) values (:name, :surname, '2.3.1995', 'Žilina', 'Slovensko')");
-        $name = $person->getName();
-        $surname = $person->getSurname();
-        $stmt->bindParam(":name", $name, PDO::PARAM_STR);
-        $stmt->bindParam(":surname", $surname, PDO::PARAM_STR);
+        $stmt = $this->conn->prepare("INSERT INTO logs (username, command, status, error_log) values (:username, :command, :status, :error_log)");
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":command", $command);
+        $stmt->bindParam(":status", $status);
+        $stmt->bindParam(":error_log", $error_log);
         $stmt->execute();
         return $this->conn->lastInsertId();
     }
