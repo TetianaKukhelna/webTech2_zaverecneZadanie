@@ -17,11 +17,19 @@ var sk_sk = {
 }
 
 function en(){
+    document.getElementById("EN").style.backgroundColor = "white";
+    document.getElementById("EN").style.color = "black";
+    document.getElementById("SK").style.backgroundColor = "";
+    document.getElementById("SK").style.color = "white";
     lang = en_us;
     setText();
 }
 
 function sk(){
+    document.getElementById("EN").style.backgroundColor = "";
+    document.getElementById("EN").style.color = "white";
+    document.getElementById("SK").style.backgroundColor = "white";
+    document.getElementById("SK").style.color = "black";
     lang = sk_sk;
     setText();
 }
@@ -36,7 +44,6 @@ function setText(){
     document.getElementById("_height").innerHTML = lang.height;
     document.getElementById("_simulate").innerHTML = lang.simulate;
     document.getElementById("_output").innerHTML = lang.output;
-
 }
 
 setText();
