@@ -4,7 +4,9 @@ var en_us = {
     name: "Name",
     height: "Height",
     simulate: "Simulate",
-    output: "Output"
+    output: "Output",
+    anim: "Animation",
+    graf: "Graf"
 }
 
 var sk_sk = {
@@ -13,7 +15,9 @@ var sk_sk = {
     name: "Meno",
     height: "Výška",
     simulate: "Simuluj",
-    output: "Výstup"
+    output: "Výstup",
+    anim: "Animácia",
+    graf: "Graf"
 }
 
 function en(){
@@ -38,12 +42,14 @@ var lang = en_us;
 
 function setText(){
     document.title = lang.heading;
-    document.getElementById("_heading").innerHTML = lang.heading;
-    document.getElementById("_intro-text").innerHTML = lang.intro_text;
-    document.getElementById("_name").innerHTML = lang.name;
-    document.getElementById("_height").innerHTML = lang.height;
-    document.getElementById("_simulate").innerHTML = lang.simulate;
-    document.getElementById("_output").innerHTML = lang.output;
+    if(document.getElementById("_heading"))     document.getElementById("_heading").innerHTML = lang.heading;
+    if(document.getElementById("_intro-text"))  document.getElementById("_intro-text").innerHTML = lang.intro_text;
+    if(document.getElementById("_name"))        document.getElementById("_name").innerHTML = lang.name;
+    if(document.getElementById("_height"))      document.getElementById("_height").innerHTML = lang.height;
+    if(document.getElementById("_simulate"))    document.getElementById("_simulate").innerHTML = lang.simulate;
+    if(document.getElementById("_output"))      document.getElementById("_output").innerHTML = lang.output;
+    if(document.getElementById("_anim"))        document.getElementById("_anim").innerHTML = lang.anim;
+    if(document.getElementById("_graf"))        document.getElementById("_graf").innerHTML = lang.graf;
 }
 
 document.getElementById("EN").style.backgroundColor = "white";
