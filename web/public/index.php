@@ -17,6 +17,7 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
     fputcsv($file, $array, ';');
 }
 
+
 ?>
 
 <!doctype html>
