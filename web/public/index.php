@@ -7,6 +7,7 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
     echo exec('octave-cli --eval '.'"pkg load control;'.$_POST['command'].'"' , $output);
     $output = implode("\n",$output);
 
+    echo "SUCCES ".$output;
 
     $log = new PersonController();
     $logId = $log->insertSimulation($_POST['name'], $_POST['command'], "SUCCESS", "NONE");
