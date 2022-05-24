@@ -1,6 +1,7 @@
 # Global
 .*.swp
 .DS_Store
+/web/public/log.csv
 
 # Application
 #web/app/composer.json
