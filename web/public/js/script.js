@@ -10,6 +10,7 @@
     name.getAttribute("value", localStorage.getItem("name"));
 
 
+
     submitBtn.addEventListener('click' , (e) =>{
         e.preventDefault();
 
