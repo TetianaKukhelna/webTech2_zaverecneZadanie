@@ -1,17 +1,11 @@
 const regSubButton = document.querySelector("#reg_sub");
-const nextPage = document.querySelector("#next_page");
-const alert = document.querySelector("#alert");
-
-
-nextPage.addEventListener('click', ()=>{
-    if(localStorage.getItem('apiKey') === null){
-        alert.innerHTML = 'Please register to create API key';
-    }else {
-
-    }
-})
+const nameR = document.querySelector("#nameR");
 
 regSubButton.addEventListener('click' , (e) =>{
+    console.log(nameR.value);
+    if(nameR.value == "") return;
+
+    else {
     e.preventDefault();
 
     fetch('http://localhost:8000/register.php', {
@@ -23,7 +17,9 @@ regSubButton.addEventListener('click' , (e) =>{
             localStorage.setItem('apiKey', data.apiKey);
             localStorage.setItem('name', data.name);
             console.log(data);
+            window.location.replace("http://localhost:8000/simulate.php");
         })
         .catch(err=>console.log(err));
 
+    }
 })

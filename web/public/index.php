@@ -1,25 +1,3 @@
-<?php
-use App\Controller\PersonController;
-include '../app/vendor/autoload.php';
-
-if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['name']) && !empty($_POST['name']))) {
-    $output = "";
-    echo exec('octave-cli --eval '.'"pkg load control;'.$_POST['command'].'"' , $output);
-    $output = implode("\n",$output);
-
-
-    $log = new PersonController();
-    $logId = $log->insertSimulation($_POST['name'], $_POST['command'], "SUCCESS", "NONE");
-    $file = fopen("log.csv", 'w');
-    $array = $log->getSimulation($logId);
-    $array = array_unique($array);
-    fputcsv($file, array_keys($array), ';');
-    fputcsv($file, $array, ';');
-}
-
-
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,63 +9,35 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <title>Suspension simulation</title>
+    <title>Registration</title>
 </head>
 <body>
 <section class="vh-100 gradient-custom">
-    <div class="container-fluid py-5 h-100">
+    <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card bg-dark text-white" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
-                        <button id="EN" class="btn btn-outline-light btn-lg px-5" onclick="en()">EN</button>
-                        <button id="SK" class="btn btn-outline-light btn-lg px-5" onclick="sk()">SK</button>
-                        <form method="post" action="index.php" class="mb-md-5 mt-md-4 pb-5" id="sim_form">
 
-                            <input type="hidden" id="api"  name="api">
-                            <input type="hidden" id="name" name="name">
+                        <form class="mb-md-5 mt-md-4 pb-5" action="index.php" method="post" id="form">
 
-                            <h2 id="_heading" class="fw-bold mb-2 text-uppercase">Suspension simulation</h2>
-                            <h4 id="_name" class="text-white-50 mb-5">Hi</h4>
-                            <h4 id="displayName" class="text-white-50 mb-5"></h4>
+                            <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                            <p class="text-white-50 mb-5">Please enter your name to continue!</p>
 
                             <div class="form-outline form-white mb-4">
-                                <h6 id="_intro-text" class="form-label" >Please enter your obstacle height or command!</h6>
-                                <button id="HEIGHT" class="btn btn-outline-light btn-lg px-5" type="button" onclick="en()">Obstacle height</button>
-                                <button id="COMMAND" class="btn btn-outline-light btn-lg px-5" type="button" onclick="sk()">Command</button>
+                                <input id="nameR" type="text" class="form-control form-control-lg" name="nameR"/>
+                                <label class="form-label" for="nameR">Name</label>
                             </div>
 
-                            <div class="form-outline form-white mb-4">
-                                <textarea id="command" name="command" class="form-control form-control-lg" ></textarea>
-                                <label id="_height" class="form-label" for="command">Height</label>
-                            </div>
-
-                            <button id="_simulate" class="btn btn-outline-light btn-lg px-5" type="submit">Simulate</button>
+                            <button class="btn btn-outline-light btn-lg px-5" id="reg_sub" type="button">Continue</button>
 
                         </form>
-                        <div class="mb-md-5 mt-md-4 pb-3">
-
-                                <div class="form-outline form-white mb-4">
-                                    <textarea class="form-control form-control-lg" id="output" name="output"></textarea>
-                                    <label id="_output" class="form-label" for="output">Output</label>
-                                </div>
-                                <a href="log.csv" download><button id="_download" class="btn btn-outline-light btn-lg px-5" type="button">Download log.csv</button></a>
-                        </div>
-                        <div class="mb-md-5 mt-md-4 pb-3">
-                            <form action="form.php" method="post">
-                                <button id="_navod" name="submit_pdf" class="btn btn-outline-light btn-lg px-5" type="submit">Instruction</button>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<script src="./js/language.js"></script>
-<script src="./js/script.js"></script>
+<script src="js/regScript.js"></script>
 </body>
 </html>
-
-

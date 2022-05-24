@@ -34,6 +34,15 @@ class PersonController
 //        return $people;
 //    }
 
+    public function getApi($api)
+    {
+        $stmt = $this->conn->prepare("SELECT api_key FROM user WHERE api_key = :api");
+        $stmt->bindParam(":api", $api);
+        $stmt->execute();
+        $api = $stmt->fetch();
+        return $api;
+    }
+
     public function getSimulation($id)
     {
         $stmt = $this->conn->prepare("SELECT id, username, created_at, command, status, error_log FROM logs WHERE id = :id");

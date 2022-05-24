@@ -1,14 +1,14 @@
 
-
-
     const submitBtn = document.querySelector("#_simulate");
     const output = document.querySelector("#output");
     const api = document.querySelector("#api");
     const name = document.querySelector("#name");
+    const displayName = document.querySelector("#displayName");
 
-    name.getAttribute("value", localStorage.getItem("api"));
-    name.getAttribute("value", localStorage.getItem("name"));
-
+    api.setAttribute("value", localStorage.getItem("apiKey"));
+    name.setAttribute("value", localStorage.getItem("name"));
+    displayName.innerHTML = localStorage.getItem("name");
+    console.log(localStorage.getItem("name"))
 
 
     submitBtn.addEventListener('click' , (e) =>{
