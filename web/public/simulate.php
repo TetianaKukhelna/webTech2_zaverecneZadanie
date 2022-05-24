@@ -25,6 +25,7 @@
 
                             <input type="hidden" id="api"  name="api">
                             <input type="hidden" id="name" name="name">
+                            <input type="hidden" id="heightOrScript" name="heightOrScript">
 
                             <h2 id="_heading" class="fw-bold mb-2 text-uppercase">Suspension simulation</h2>
                             <h4 id="_name" class="text-white-50">Hi</h4>

@@ -3,15 +3,35 @@ const output = document.querySelector("#output");
 const api = document.querySelector("#api");
 const name = document.querySelector("#name");
 const displayName = document.querySelector("#displayName");
+const heightOrScript = document.querySelector("#heightOrScript");
+const command = document.querySelector("#command");
+const btnHeight = document.querySelector("#HEIGHT");
+const btnCommand = document.querySelector("#COMMAND");
+
 
 api.setAttribute("value", localStorage.getItem("apiKey"));
 name.setAttribute("value", localStorage.getItem("name"));
+heightOrScript.setAttribute("value",'height');
+command.setAttribute("placeholder","Input height r")
 displayName.innerHTML = localStorage.getItem("name");
 console.log(localStorage.getItem("name"))
 
+btnHeight.addEventListener('click',() =>{
+    heightOrScript.setAttribute("value",'height');
+    command.setAttribute("placeholder","Input height r")
+})
+
+btnCommand.addEventListener('click',() =>{
+    heightOrScript.setAttribute("value",'command');
+    command.setAttribute("placeholder","Input comand for Octave without semicolon at the end { ; }")
+})
+
+
+
+
 submitBtn.addEventListener('click' , (e) =>{
     e.preventDefault();
-
+        // https://site112.webte.fei.stuba.sk/zaverecneZadanie/web/public/server.php
     fetch('http://localhost:8000/server.php', {
         method:'POST',
         mode:"cors",
