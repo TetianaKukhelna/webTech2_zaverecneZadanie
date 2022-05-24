@@ -1,11 +1,12 @@
 
+
+
     const submitBtn = document.querySelector("#_simulate");
     const output = document.querySelector("#output");
 
 
 
     submitBtn.addEventListener('click' , (e) =>{
-        console.log("-------------------")
         e.preventDefault();
 
         fetch('http://localhost:8000/server.php', {

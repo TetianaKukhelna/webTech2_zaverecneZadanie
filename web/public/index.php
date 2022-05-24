@@ -61,16 +61,13 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
 
                         </form>
                         <div class="mb-md-5 mt-md-4 pb-3">
-                            <?php
-                            if(isset($output) && !empty($output)){?>
+
                                 <div class="form-outline form-white mb-4">
                                     <textarea class="form-control form-control-lg" id="output" name="output"></textarea>
                                     <label id="_output" class="form-label" for="output">Output</label>
                                 </div>
                                 <a href="log.csv" download><button id="_download" class="btn btn-outline-light btn-lg px-5" type="button">Download log.csv</button></a>
-                        <?php
-                        }
-                        ?>
+
                         </div>
                     </div>
                 </div>
