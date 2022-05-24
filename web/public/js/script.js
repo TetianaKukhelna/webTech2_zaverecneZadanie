@@ -29,7 +29,7 @@ submitBtn.addEventListener('click' , (e) =>{
 let myDataX = [];
 let myDataY1 = [];
 let myDataY2 = [];
-
+var index = 0;
 function parse(data){
     result = data;
     result = result.split("\n");
@@ -62,33 +62,25 @@ function parse(data){
 }
 
 function kresli(){
-    let trace1 = {
-        x: myDataX,
-        y: myDataY2,
-        name: 'Dumper',
-        type: 'scatter'
-    };
+    Plotly.newPlot('graf', [{
+        y: [],
+        mode: 'lines',
+        line: {color: '#80CAF6'}
+    }, {
+        y: [],
+        mode: 'lines',
+        line: {color: '#DF56F1'}
+    }]);
+    var cnt = 0;
+    var interval = setInterval(function() {
 
-    var trace2 = {
-        x: myDataX,
-        y: myDataY1,
-        name: 'Car',
-        yaxis: 'x2',
-        type: 'scatter'
-    };
+        Plotly.extendTraces('graf', {
+            y: [[myDataY2[index]], [myDataY1[index]]]
+        }, [0, 1])
+        index+=1;
+        if(++cnt === 510) clearInterval(interval);
+    }, 50);
 
-    var data = [trace1, trace2];
-
-    var layout = {
-        yaxis2: {
-            titlefont: {color: 'rgb(148, 103, 189)'},
-            tickfont: {color: 'rgb(148, 103, 189)'},
-            overlaying: 'y',
-            side: 'right'
-        }
-    };
-
-    Plotly.newPlot('graf', data, layout);
 }
 
 //animacia
