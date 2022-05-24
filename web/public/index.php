@@ -44,12 +44,17 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
                         <button id="SK" class="btn btn-outline-light btn-lg px-5" onclick="sk()">SK</button>
                         <form method="post" action="index.php" class="mb-md-5 mt-md-4 pb-5" id="sim_form">
 
+                            <input type="hidden" id="api"  name="api">
+                            <input type="hidden" id="name" name="name">
+
                             <h2 id="_heading" class="fw-bold mb-2 text-uppercase">Suspension simulation</h2>
-                            <p id="_intro-text" class="text-white-50 mb-5">Please enter your name and obstacle height!</p>
+                            <h4 id="_name" class="text-white-50 mb-5">Hi</h4>
+                            <h4 id="displayName" class="text-white-50 mb-5"></h4>
 
                             <div class="form-outline form-white mb-4">
-                                <input type="text" id="name" name="name" class="form-control form-control-lg" />
-                                <label id="_name" class="form-label" for="name">Name</label>
+                                <h6 id="_intro-text" class="form-label" >Please enter your obstacle height or command!</h6>
+                                <button id="HEIGHT" class="btn btn-outline-light btn-lg px-5" type="button" onclick="en()">Obstacle height</button>
+                                <button id="COMMAND" class="btn btn-outline-light btn-lg px-5" type="button" onclick="sk()">Command</button>
                             </div>
 
                             <div class="form-outline form-white mb-4">
@@ -61,6 +66,7 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
 
                         </form>
                         <div class="mb-md-5 mt-md-4 pb-3">
+
                                 <div class="form-outline form-white mb-4">
                                     <textarea class="form-control form-control-lg" id="output" name="output"></textarea>
                                     <label id="_output" class="form-label" for="output">Output</label>

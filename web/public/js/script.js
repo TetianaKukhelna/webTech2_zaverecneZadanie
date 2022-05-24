@@ -3,6 +3,11 @@
 
     const submitBtn = document.querySelector("#_simulate");
     const output = document.querySelector("#output");
+    const api = document.querySelector("#api");
+    const name = document.querySelector("#name");
+
+    name.getAttribute("value", localStorage.getItem("api"));
+    name.getAttribute("value", localStorage.getItem("name"));
 
 
 
@@ -21,4 +26,5 @@
             .catch(err=>console.log(err));
 
     })
+
 

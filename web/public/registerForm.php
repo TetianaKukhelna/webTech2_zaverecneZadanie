@@ -8,10 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<form action="register.php" method="post" >
+<form action="index.php" method="post" id="form">
     <input type="text" name="nameR">
-    <button type="submit">submit</button>
+    <button id="reg_sub" type="submit">submit</button>
 </form>
 
+<button style="display: none" id="next_page">Now you can proceed to simulation</button>
+<h1 id="alert"></h1>
+
+<script src="js/regScript.js"></script>
 </body>
 </html>
