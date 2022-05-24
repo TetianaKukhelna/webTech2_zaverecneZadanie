@@ -31,7 +31,7 @@ btnCommand.addEventListener('click',() =>{
 
 submitBtn.addEventListener('click' , (e) =>{
     e.preventDefault();
-
+        // https://site112.webte.fei.stuba.sk/zaverecneZadanie/web/public/server.php
     fetch('http://localhost:8000/server.php', {
         method:'POST',
         mode:"cors",

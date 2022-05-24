@@ -8,7 +8,11 @@ if (isset($_GET['en'])){
 graph rendering. The whole project is run using Docker and has docker-compose file in it. For data storage and processing, we use a local MySQL database, which we 
 linked using PHPMyAdmin. We run our project on port:8000.
 ";
-    $popis = "       On the page you can enter your name and Octave script, which if necessary we will simulate using a graph and animation. Once the simulation is complete, the output will be a graph and animation that will be used to show what values we have obtai-
+    $popis = "       You can enter your name on the registration page, where after registration it will generate an API key which will be stored in the database and localstorage according 
+to which you will be able to enter the application. Once started, it will redirect you to 
+a page where you can perform the simulation. After pressing the barrier height button, enter a single number (e.g. 1) in the empty field. After pressing the Command button, 
+enter a scroll command (e.g., 5+5) in the blank field. Press the Simulation button, which, when entered correctly, will draw a graph and create an animation. Below it, you will also see the output in values as it was generated.
+       On the page you can enter your name and Octave script, which if necessary we will simulate using a graph and animation. Once the simulation is complete, the output will be a graph and animation that will be used to show what values we have obtai-
 ned. On the page you have the option to download the logs in CSV format and email them to me. In the file you will get the time and date when the data was generated,
 whether the command was executed correctly, and if the command failed, you will get information about the error.";
 
@@ -18,14 +22,13 @@ whether the command was executed correctly, and if the command failed, you will 
     $popis1 = "        API, ktoré pou¾ívame, vyu¾íva CAS (Computer Aided System) a Octave na lep-
 ¹ie vykresµovanie grafov. Celý projekt sa spú¹»a pomocou nástroja Docker a má v sebe docker-compose subor. Na ukladanie a spracovanie údajov pou¾ívame lokálnu databázu MySQL, ktorú sme prepojili pomocou PHPMyAdmin. Ná¹ projekt spú¹»ame na adrese port:8000.
 ";
-    $popis = "       Na stránke mô¾ete zada» svoje meno a Octave script, ktorý v pripade pruznosti nasimulujeme pomocou grafu a animacii. Po skonèení simulácie bude výstupom graf 
-a animácia, ktorá bude slú¾i» na zobrazenie toho, aké hodnoty sme získali. Na strá-
-nke máte mo¾nos» stiahnu» si protokoly vo formáte CSV a posla» mi ich e-mailom. V súbore získate: èas a dátum, kedy boli údaje vygenerované, èi bol príkaz vykonaný 
-správne a v prípade neúspe¹ného príkazu získate informácie o chybe.";
+    $popis = "       Na registraènej stránke mô¾ete zada» svoje meno, prièom po registrácii sa vygeneruje kµúè API, ktorý sa ulo¾í do databázy a lokálneho úlo¾iska, podµa ktorého 
+budete môc» vstúpi» do aplikácie.Po spustení vás presmeruje na stránku, kde mô¾ete 
+vykona» simuláciu. Po stlaèení tlaèidla vý¹ky bariéry zadajte do prázdneho poµa jedno èíslo (napr. 1). Po stlaèení tlaèidla Príkaz zadajte do prázdneho poµa príkaz na posú-
+vanie (napr. 5+5). Stlaète tlaèidlo Simulation (Simulácia), ktoré po správnom zadaní 
+nakreslí graf a vytvorí animáciu. Pod òou sa zobrazí aj výstup v hodnotách, ako bol vygenerovaný.
+       Na stránke máte mo¾nos» stiahnu» si protokoly vo formáte CSV a posla» mi ich e-mailom. V súbore získate: èas a dátum, kedy boli údaje vygenerované, èi bol príkaz vykonaný správne a v prípade neúspe¹ného príkazu získate informácie o chybe.";
 }
-
-//$utf8_string = utf8_encode($popis_header);
-//$utf8_string = mb_convert_encoding($popis_header, 'UTF-8', 'iso-8859-2');
 
     if (isset($_GET['hello'])) {
         $pdf = new FPDF();

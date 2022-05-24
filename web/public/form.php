@@ -2,35 +2,6 @@
 
 require('fpdf184/fpdf.php');  // MAKE SURE YOU HAVE THIS LINE
 
-$popis = "Návod na používanie stránky, popis vytvoreného API.
-
-        Vyuzivana nami API pouziva CAS(Computer Aided System) a Octave pre lepse kreslenie grafa.
-        Cely projekt je rozbehany pomocou Docker a ma v sebe docker-compose.
-        Pre ukladanie a pracu s udajmi pouzivame lokalnu databazu MySQL aku mame spojenu s PHPMyAdmin.
-        Bezi nas projekt na poste:8000.
-        Na stranke ste mozete uvediet svoje meno a vahu aku chcete zosimulovat.
-        Po Simulacii, vystupom bude sluzit graf a animacia, aka bude sluzit na ukazku ake hodnoty sme dostavali.
-
-        Na stranke ste mate moznost stahnut logy vo formate CSV a s dalsim odoselanim ma e-mail. V subore ste dostanete cas a datum kedy boli vygenerovane udaje,
-        ci spravne bol zbehnuty prikaz a v pripade Failed, bude dana informacia o chybe.
-
-        Mate v moznosti stahnut tento Navod vo formate PDF.
-        Nizsie dasa vybrat jazyk.";
-
-if (isset($_POST['download_pdf'])) {
-
-    $pdf = new FPDF();
-    $pdf->AddPage();
-    $pdf->SetFont( 'Arial', '', 20 );
-    $pdf->Cell(0,10,"Popis vytvoreného API a návod na používanie stránky",1,0,'C');
-    $pdf->Cell(0,10,"Pouzivame CAS (Computer Aided System)",1,0,'C');
-
-    $pdf->Cell(0,10,"Zaciatok ",1,0,'C');
-    $pdf->Write(15, "$popis");
-
-    $pdf->Output("report.pdf", "D");
-}
-
 ?>
 
 <!doctype html>
