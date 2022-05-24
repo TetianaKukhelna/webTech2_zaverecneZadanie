@@ -8,7 +8,7 @@ regSubButton.addEventListener('click' , (e) =>{
     else {
         e.preventDefault();
 
-        fetch('http://localhost:8000/register.php', {
+        fetch('https://147.175.98.112:8000/register.php', {
             method:'POST',
             mode:"cors",
             body:new FormData(document.querySelector('#form'))
@@ -17,7 +17,7 @@ regSubButton.addEventListener('click' , (e) =>{
                 localStorage.setItem('apiKey', data.apiKey);
                 localStorage.setItem('name', data.name);
                 console.log(data);
-                window.location.replace("http://localhost:8000/simulate.php");
+                window.location.replace("https://147.175.98.112:8000/simulate.php");
             })
             .catch(err=>console.log(err));
 
