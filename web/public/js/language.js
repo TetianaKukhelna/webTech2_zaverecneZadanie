@@ -7,7 +7,10 @@ var en_us = {
     output: "Output",
     anim: "Animation",
     graf: "Graf",
-    navod: "Instruction"
+    navod: "Instruction",
+    obstacle_h: "Obstacle height",
+    command: "Command",
+    b_csv: "Download log.csv"
 }
 
 var sk_sk = {
@@ -19,7 +22,10 @@ var sk_sk = {
     output: "Výstup",
     anim: "Animácia",
     graf: "Graf",
-    navod: "Navod"
+    navod: "Navod",
+    obstacle_h: "Výška prekážky",
+    command: "Príkaz",
+    b_csv: "Stiahnuť log.csv"
 }
 
 function en(){
@@ -53,6 +59,11 @@ function setText(){
     if(document.getElementById("_anim"))        document.getElementById("_anim").innerHTML = lang.anim;
     if(document.getElementById("_graf"))        document.getElementById("_graf").innerHTML = lang.graf;
     if(document.getElementById("_navod"))       document.getElementById("_navod").innerHTML = lang.navod;
+
+    if(document.getElementById("HEIGHT"))       document.getElementById("HEIGHT").innerHTML = lang.obstacle_h;
+    if(document.getElementById("COMMAND"))       document.getElementById("COMMAND").innerHTML = lang.command;
+    if(document.getElementById("_download"))       document.getElementById("_download").innerHTML = lang.b_csv;
+
 }
 
 document.getElementById("EN").style.backgroundColor = "white";
