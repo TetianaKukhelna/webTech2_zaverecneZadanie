@@ -33,8 +33,8 @@
 
                             <div class="form-outline form-white mb-4">
                                 <h6 id="_intro-text" class="form-label" >Please enter your obstacle height or command!</h6>
-                                <button id="HEIGHT" class="btn btn-outline-light btn-lg px-5" type="button" onclick="height()">Obstacle height</button>
-                                <button id="COMMAND" class="btn btn-outline-light btn-lg px-5" type="button" onclick="command()">Command</button>
+                                <button id="HEIGHT" class="btn btn-outline-light btn-lg px-5" type="button">Obstacle height</button>
+                                <button id="COMMAND" class="btn btn-outline-light btn-lg px-5" type="button">Command</button>
                             </div>
 
                             <div class="form-outline form-white mb-4">
