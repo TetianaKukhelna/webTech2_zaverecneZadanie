@@ -3,7 +3,11 @@ use App\Controller\PersonController;
 include '../app/vendor/autoload.php';
 
 if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['name']) && !empty($_POST['name']))) {
-    echo $_POST['name'];
+    $output = "";
+    echo exec('octave-cli --eval '.'"pkg load control;'.$_POST['command'].'"' , $output);
+    $output = implode("\n",$output);
+
+
     $log = new PersonController();
     $logId = $log->insertSimulation($_POST['name'], $_POST['command'], "SUCCESS", "NONE");
     $file = fopen("log.csv", 'w');
@@ -55,12 +59,14 @@ if ((isset($_POST['command']) && !empty($_POST['command'])) && (isset($_POST['na
 
                             <div class="form-outline form-white mb-4">
                                 <textarea id="command" name="command" class="form-control form-control-lg" ></textarea>
+                                <label id="_height" class="form-label" for="command">Height</label>
                             </div>
 
                             <button id="_simulate" class="btn btn-outline-light btn-lg px-5" type="submit">Simulate</button>
 
                         </form>
                         <div class="mb-md-5 mt-md-4 pb-3">
+
                                 <div class="form-outline form-white mb-4">
                                     <textarea class="form-control form-control-lg" id="output" name="output"></textarea>
                                     <label id="_output" class="form-label" for="output">Output</label>

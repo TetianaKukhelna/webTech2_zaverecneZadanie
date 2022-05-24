@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $apiKey = password_hash($name, PASSWORD_DEFAULT);
         $result = $conn->query("insert into user (name,api_key) values ('$name', '$apiKey');");
         if ($result) {
-            echo json_encode(['status' => 'success', 'apiKey' => $apiKey]);
+            echo json_encode(['status' => 'success', 'apiKey' => $apiKey, 'name'=>$name]);
         } else {
             echo json_encode(['status' => 'FAILED']);
         }
@@ -22,3 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 }
+
+
+?>
+
