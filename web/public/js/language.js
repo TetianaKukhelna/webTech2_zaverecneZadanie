@@ -6,7 +6,8 @@ var en_us = {
     simulate: "Simulate",
     output: "Output",
     anim: "Animation",
-    graf: "Graf"
+    graf: "Graf",
+    navod: "Instruction"
 }
 
 var sk_sk = {
@@ -17,7 +18,8 @@ var sk_sk = {
     simulate: "Simuluj",
     output: "Výstup",
     anim: "Animácia",
-    graf: "Graf"
+    graf: "Graf",
+    navod: "Navod"
 }
 
 function en(){
@@ -50,6 +52,7 @@ function setText(){
     if(document.getElementById("_output"))      document.getElementById("_output").innerHTML = lang.output;
     if(document.getElementById("_anim"))        document.getElementById("_anim").innerHTML = lang.anim;
     if(document.getElementById("_graf"))        document.getElementById("_graf").innerHTML = lang.graf;
+    if(document.getElementById("_navod"))       document.getElementById("_navod").innerHTML = lang.navod;
 }
 
 document.getElementById("EN").style.backgroundColor = "white";
