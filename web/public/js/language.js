@@ -13,6 +13,7 @@ var en_us = {
     b_csv: "Download log.csv"
 }
 
+
 var sk_sk = {
     heading:"Simulácia pruženia",
     intro_text:"Prosím zadajte výšku prekážky alebo príkaz!",
