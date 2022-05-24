@@ -58,7 +58,7 @@ if (isset($_POST['download_pdf'])) {
                         </p>
                     </div>
                     <div class="mb-md-5 mt-md-4 text-center">
-                        <a id="link_donwload" href='download.php?hello=true&en'><button class="btn btn-outline-light btn-lg px-5" >Run PHP Function</button></a>
+                        <a id="link_donwload" href='download.php?hello=true&en'><button id="downl_pdf" class="btn btn-outline-light btn-lg px-5" >Download PDF</button></a>
 <!--                        <form action="download.php" method="post">-->
                             <button id="navod_en" type="submit" name="en" class="btn btn-outline-light btn-lg px-5" onclick="navod_en()">EN</button>
                             <button id="navod_sk" type="submit" name="sk" class="btn btn-outline-light btn-lg px-5" onclick="navod_sk()">SK</button>

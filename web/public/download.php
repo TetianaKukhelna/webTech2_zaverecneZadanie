@@ -29,16 +29,13 @@ správne a v prípade neúspe¹ného príkazu získate informácie o chybe.";
 
     if (isset($_GET['hello'])) {
         $pdf = new FPDF();
-
         $pdf->AddFont('Arial','','arial.php');
         $pdf->AddPage();
         $pdf->SetFont( 'Arial', 'B', 16 );
-//        $pdf->SetTextColor(50,60,100);
 
-//        echo $popis_header;
         $pdf->Cell(0,10,"$popis_header",1,0,'C');
         $pdf->SetFont( 'Arial', '', 14 );
-//        $pdf->Ln(10);
+
         $pdf->Write(15,"$popis1");
         $pdf->Write(20, "$popis");
 
