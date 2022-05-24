@@ -1,7 +1,7 @@
 var en_us = {
     heading:"Suspension simulation",
-    intro_text:"Please enter your name and obstacle height",
-    name: "Name",
+    intro_text:"Please enter your obstacle height or command!",
+    name: "Hi",
     height: "Height",
     simulate: "Simulate",
     output: "Output",
@@ -11,8 +11,8 @@ var en_us = {
 
 var sk_sk = {
     heading:"Simulácia pruženia",
-    intro_text:"Prosím zadajte svoje meno a výšku prekážky",
-    name: "Meno",
+    intro_text:"Prosím zadajte výšku prekážky alebo príkaz!",
+    name: "Ahoj",
     height: "Výška",
     simulate: "Simuluj",
     output: "Výstup",
