@@ -44,16 +44,17 @@
                             <button id="_simulate" class="btn btn-outline-light btn-lg px-5" type="submit">Simulate</button>
 
                         </form>
-                        <div class="mb-md-5 mt-md-4 pb-3">
+                        <div class="mb-md-2 mt-md-2 pb-3">
 
                                 <div class="form-outline form-white mb-4">
                                     <textarea class="form-control form-control-lg" id="output" name="output"></textarea>
                                     <label id="_output" class="form-label" for="output">Output</label>
                                 </div>
-                                <a href="log.csv" download><button id="_download" class="btn btn-outline-light btn-lg px-5" type="button">Download log.csv</button></a>
+
                         </div>
-                        <div class="mb-md-5 mt-md-4 pb-3">
-                            <form action="form.php" method="post">
+                        <div class="row mb-md-2 mt-md-2 pb-3">
+                            <a class="col" href="log.csv" download><button id="_download" class="btn btn-outline-light btn-lg px-5" type="button">Download log.csv</button></a>
+                            <form class="col" action="form.php" method="post">
                                 <button id="_navod" name="submit_pdf" class="btn btn-outline-light btn-lg px-5" type="submit">Instruction</button>
                             </form>
                         </div>

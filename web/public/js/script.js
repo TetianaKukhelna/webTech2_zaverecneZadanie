@@ -16,21 +16,27 @@ command.setAttribute("placeholder","Input height r")
 displayName.innerHTML = localStorage.getItem("name");
 console.log(localStorage.getItem("name"))
 
+var canDraw;
 btnHeight.addEventListener('click',() =>{
     heightOrScript.setAttribute("value",'height');
     command.setAttribute("placeholder","Input height r")
+    canDraw = true;
+    document.getElementById("graf").style.display = "block";
+
 })
 
 btnCommand.addEventListener('click',() =>{
     heightOrScript.setAttribute("value",'command');
-    command.setAttribute("placeholder","Input comand for Octave without semicolon at the end { ; }")
+    command.setAttribute("placeholder","Input comand for Octave without semicolon at the end { ; }");
+    canDraw = false;
+    document.getElementById("graf").style.display = "none";
 })
 
 
 submitBtn.addEventListener('click' , (e) =>{
     e.preventDefault();
         // https://site112.webte.fei.stuba.sk/zaverecneZadanie/web/public/server.php
-    fetch('http://localhost:8000/server.php', {
+    fetch('https://147.175.98.112:8000/server.php', {
         method:'POST',
         mode:"cors",
         body:new FormData(document.querySelector('#sim_form'))
@@ -76,7 +82,9 @@ function parse(data){
             }
         }
     }
-    kresli();
+    if(canDraw){
+        kresli();
+    }
 }
 
 function kresli(){
