@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $command = $_POST['command'];
 
     if ($api == null || empty($api) || !isset($api)) {
-        echo json_encode(['apiDB'=>$api,'apiServer'=>$_POST['api'],'status'=>"FAILED",'name'=>$name,'result'=>"UNAUTHORIZED ACCESS \nRegister to get API KEY"]);
+        echo json_encode(['status'=>"FAILED",'name'=>$name,'result'=>"UNAUTHORIZED ACCESS \nRegister to get API KEY"]);
         return;
     }
 
@@ -27,14 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $errorLog = "NONE";
     }
 
-    $logId = $db->insertSimulation($_POST['name'], $_POST['command'], "FAILED", $errorLog);
+    $logId = $db->insertSimulation($_POST['name'], $_POST['command'], $status, $errorLog);
     $file = fopen("log.csv", 'w');
     $array = $db->getSimulation($logId);
     $array = array_unique($array);
     fputcsv($file, array_keys($array), ';');
     fputcsv($file, $array, ';');
 
-    echo json_encode(['apiDB'=>$api,'apiServer'=>$_POST['api'],'status'=>$status,'name'=>$name,'result'=>$output]);
+    echo json_encode(['status'=>$status,'name'=>$name,'result'=>$output]);
 }
 
 
