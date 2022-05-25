@@ -12,7 +12,7 @@ var en_Us = {
         "   Press the Simulation button, which, when entered correctly, will draw a graph and create an animation.\n" +
         "   Below it, you will also see the output in values as it was generated.\n" +
         "\n" +
-        "    On the page you have the possibility to download the logs in CSV format and send them to me by e-mail. In the file you will get the time and date when the data was generated,\n" +
+        "    On the page you have the possibility to download the logs in CSV format and send them to me by e-mail address from config file. In the file you will get the time and date when the data was generated,\n" +
         "    if the command was run correctly and in case of Failed, you will be given information about the error.\n" +
         "\n" +
         "    You have the possibility to download this manual in PDF format.\n" +
@@ -34,7 +34,7 @@ var sk_Sk = {
         "    Stlačte tlačidlo Simulation (Simulácia), ktoré po správnom zadaní nakreslí graf a vytvorí animáciu.\n" +
         "    Pod ňou sa zobrazí aj výstup v hodnotách, ako bol vygenerovaný.\n" +
         "\n" +
-        "    Na stranke ste mate moznost stahnut logy vo formate CSV a s dalsim odoselanim ma e-mail. V subore ste dostanete cas a datum kedy boli vygenerovane udaje,\n" +
+        "    Na stranke ste mate moznost stahnut logy vo formate CSV a s dalsim odoselanim ma e-mail adresu zadanú v config file. V subore ste dostanete cas a datum kedy boli vygenerovane udaje,\n" +
         "    ci spravne bol zbehnuty prikaz a v pripade Failed, bude dana informacia o chybe.\n" +
         "\n" +
         "    Mate v moznosti stahnut tento Navod vo formate PDF.\n" +
