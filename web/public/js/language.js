@@ -10,7 +10,9 @@ var en_us = {
     navod: "Instruction",
     obstacle_h: "Obstacle height",
     command: "Command",
-    b_csv: "Download log.csv"
+    b_csv: "Download log.csv",
+    email: "Get email"
+
 }
 
 
@@ -26,7 +28,8 @@ var sk_sk = {
     navod: "Navod",
     obstacle_h: "Výška prekážky",
     command: "Príkaz",
-    b_csv: "Stiahnuť log.csv"
+    b_csv: "Stiahnuť log.csv",
+    email: "Získať email"
 }
 
 function en(){
@@ -60,6 +63,7 @@ function setText(){
     if(document.getElementById("_anim"))        document.getElementById("_anim").innerHTML = lang.anim;
     if(document.getElementById("_graf"))        document.getElementById("_graf").innerHTML = lang.graf;
     if(document.getElementById("_navod"))       document.getElementById("_navod").innerHTML = lang.navod;
+    if(document.getElementById("sendEmail"))       document.getElementById("sendEmail").innerHTML = lang.email;
 
     if(document.getElementById("HEIGHT"))       document.getElementById("HEIGHT").innerHTML = lang.obstacle_h;
     if(document.getElementById("COMMAND"))      document.getElementById("COMMAND").innerHTML = lang.command;
