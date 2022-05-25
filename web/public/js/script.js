@@ -38,13 +38,19 @@ console.log(localStorage.getItem("name"))
 
 var canDraw = true;
 
+btnHeight.style.backgroundColor = "White";
+btnHeight.style.color = "black";
+
 btnHeight.addEventListener('click',() =>{
     heightOrScript.setAttribute("value",'height');
     command.setAttribute("placeholder","Input height r")
     canDraw = true;
     document.getElementById("graf").style.display = "block";
     document.getElementById("anim").style.display = "block";
-
+    btnHeight.style.backgroundColor = "White";
+    btnHeight.style.color = "black";
+    btnCommand.style.backgroundColor = "";
+    btnCommand.style.color = "white";
 })
 
 btnCommand.addEventListener('click',() =>{
@@ -53,6 +59,10 @@ btnCommand.addEventListener('click',() =>{
     canDraw = false;
     document.getElementById("graf").style.display = "none";
     document.getElementById("anim").style.display = "none";
+    btnHeight.style.backgroundColor = "";
+    btnHeight.style.color = "White";
+    btnCommand.style.backgroundColor = "White";
+    btnCommand.style.color = "black";
 })
 
 var log = "No experiment detected.";
@@ -244,7 +254,7 @@ function sendEmail(){
         Host : "smtp.elasticemail.com",
         Username : "xantalp1@stuba.sk",
         Password : "F6AD334E5E39427289AC47E89902E63F9D62",
-        To : 'patrik.antal3@gmail.com',
+        To : email,
         From : "xantalp1@stuba.sk",
         Subject : "Logs",
         Body : "Here are your logs from your current experiment.\n"+ log
