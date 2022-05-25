@@ -10,6 +10,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./js/plotly-2.12.1.min.js"></script>
+    <script src="./js/fabric.min.js"></script>
     <title>Suspension simulation</title>
 </head>
 <body>
@@ -21,8 +22,18 @@
                     <div class="card-body p-5 text-center">
                         <button id="EN" class="btn btn-outline-light btn-lg px-5" onclick="en()">EN</button>
                         <button id="SK" class="btn btn-outline-light btn-lg px-5" onclick="sk()">SK</button>
-                        <form method="post" action="simulate.php" class="mb-md-5 mt-md-4 pb-5" id="sim_form">
 
+                        <br>
+                        <label id="_graf" for="grafInput">Graf</label>
+                        <input type="checkbox" id="grafInput" name="graf" value="Graf" checked>
+                        <label id="_anim" for="animInput">Animation</label>
+                        <input type="checkbox" id="animInput" name="anim" value="Animation" checked>
+
+
+                        <div id="graf"></div>
+                        <div id="anim"></div>
+
+                        <form method="post" action="simulate.php" class="mb-md-5 mt-md-4 pb-5" id="sim_form">
                             <input type="hidden" id="api"  name="api">
                             <input type="hidden" id="name" name="name">
                             <input type="hidden" id="heightOrScript" name="heightOrScript">
@@ -58,7 +69,6 @@
                                 <button id="_navod" name="submit_pdf" class="btn btn-outline-light btn-lg px-5" type="submit">Instruction</button>
                             </form>
                         </div>
-                        <div id="graf"></div>
                     </div>
                 </div>
             </div>

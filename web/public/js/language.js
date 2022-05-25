@@ -6,7 +6,7 @@ var en_us = {
     simulate: "Simulate",
     output: "Output",
     anim: "Animation",
-    graf: "Graf",
+    graf: "Graph",
     navod: "Instruction",
     obstacle_h: "Obstacle height",
     command: "Command",
@@ -62,8 +62,8 @@ function setText(){
     if(document.getElementById("_navod"))       document.getElementById("_navod").innerHTML = lang.navod;
 
     if(document.getElementById("HEIGHT"))       document.getElementById("HEIGHT").innerHTML = lang.obstacle_h;
-    if(document.getElementById("COMMAND"))       document.getElementById("COMMAND").innerHTML = lang.command;
-    if(document.getElementById("_download"))       document.getElementById("_download").innerHTML = lang.b_csv;
+    if(document.getElementById("COMMAND"))      document.getElementById("COMMAND").innerHTML = lang.command;
+    if(document.getElementById("_download"))    document.getElementById("_download").innerHTML = lang.b_csv;
 
 }
 
