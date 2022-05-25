@@ -43,6 +43,7 @@ btnHeight.addEventListener('click',() =>{
     command.setAttribute("placeholder","Input height r")
     canDraw = true;
     document.getElementById("graf").style.display = "block";
+    document.getElementById("anim").style.display = "block";
 
 })
 
@@ -51,6 +52,7 @@ btnCommand.addEventListener('click',() =>{
     command.setAttribute("placeholder","Input comand for Octave without semicolon at the end { ; }");
     canDraw = false;
     document.getElementById("graf").style.display = "none";
+    document.getElementById("anim").style.display = "none";
 })
 
 
@@ -111,26 +113,26 @@ function parse(data){
     var max;
     var min;
 
-    let dopici1 = [];
+    let array1 = [];
 
     for (let i = 0; i < myDataY1.length; i++) {
-        dopici1.push(Math.round(Number(myDataY1[i])));
+        array1.push(Math.round(Number(myDataY1[i])));
     }
-    var dopici2 = [];
+    var array2 = [];
 
     for (let i = 0; i < myDataY2.length; i++) {
-        dopici2.push(Math.round(Number(myDataY2[i])));
+        array2.push(Math.round(Number(myDataY2[i])));
     }
     var max1 = 0;
-    for (let i = 0; i < dopici1.length; i++) {
-        if(dopici1[i] > max1){
-            max1 = dopici1[i];
+    for (let i = 0; i < array1.length; i++) {
+        if(array1[i] > max1){
+            max1 = array1[i];
         }
     }
     var max2 = 0;
-    for (let i = 0; i < dopici2.length; i++) {
-        if(dopici2[i] > max2){
-            max2 = dopici2[i];
+    for (let i = 0; i < array2.length; i++) {
+        if(array2[i] > max2){
+            max2 = array2[i];
         }
     }
 
@@ -142,15 +144,15 @@ function parse(data){
     }
 
     var min1 = 0;
-    for (let i = 0; i < dopici1.length; i++) {
-        if(dopici1[i] < min1){
-            min1 = dopici1[i];
+    for (let i = 0; i < array1.length; i++) {
+        if(array1[i] < min1){
+            min1 = array1[i];
         }
     }
     var min2 = 0;
-    for (let i = 0; i < dopici2.length; i++) {
-        if(dopici2[i] < min2){
-            min2 = dopici2[i];
+    for (let i = 0; i < array2.length; i++) {
+        if(array2[i] < min2){
+            min2 = array2[i];
         }
     }
 
@@ -236,87 +238,3 @@ function animate(max, min){
     }, 10);
 
 }
-
-//animacia
-let spring;
-let piston1;
-let piston2;
-let canvas;
-
-function start() {
-    canvas = new fabric.Canvas('canvas');
-
-    spring = new fabric.Rect({
-        left: 100,
-        top: 115,
-        fill: 'black',
-        width: 60,
-        height: 5
-    });
-
-    piston1 = new fabric.Rect({
-        left: 120,
-        top: 100,
-        fill: 'blue',
-        width: 20,
-        height: 40
-    });
-
-    piston2 = new fabric.Rect({
-        left: 160,
-        top: 100,
-        fill: 'red',
-        width: 20,
-        height: 40
-    });
-
-    canvas.add(spring);
-    canvas.add(piston1);
-    canvas.add(piston2);
-}
-
-let count = 0;
-function anim(){
-    count++;
-    spring.animate('width', 200, {
-        onChange: canvas.renderAll.bind(canvas),
-        fixedduration: 1000,
-    });
-
-    piston1.animate('left', 180, {
-        onChange: canvas.renderAll.bind(canvas),
-        fixedduration: 1000,
-    });
-
-    piston2.animate('left', 280, {
-        onChange: canvas.renderAll.bind(canvas),
-        fixedduration: 1000,
-    });
-    setTimeout(function(){
-        spring.animate('width', 60, {
-            onChange: canvas.renderAll.bind(canvas),
-            fixedduration: 1000,
-        });
-
-        piston1.animate('left', 120, {
-            onChange: canvas.renderAll.bind(canvas),
-            fixedduration: 1000,
-        });
-
-        piston2.animate('left', 160, {
-            onChange: canvas.renderAll.bind(canvas),
-            fixedduration: 1000,
-        });
-        if(count < 3) {
-            anim();
-        }
-    }, 1000);
-
-
-}
-
-function play(){
-    anim();
-}
-
-
