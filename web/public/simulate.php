@@ -69,6 +69,7 @@
 </section>
 
 <script src="./js/language.js"></script>
+<script src="./js/config.js"></script>
 <script src="./js/script.js"></script>
 </body>
 </html>

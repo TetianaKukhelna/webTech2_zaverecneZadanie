@@ -1,0 +1,1 @@
+const email = "xantalp1@stuba.sk";
