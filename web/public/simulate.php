@@ -10,6 +10,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./js/plotly-2.12.1.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>Suspension simulation</title>
 </head>
 <body>
@@ -54,6 +55,7 @@
                         </div>
                         <div class="row mb-md-2 mt-md-2 pb-3">
                             <a class="col" href="log.csv" download><button id="_download" class="btn btn-outline-light btn-lg px-5" type="button">Download log.csv</button></a>
+                            <button class="col btn btn-outline-light btn-lg px-5" type="button" id="sendEmail" onclick="sendEmail()">Get email</button>
                             <form class="col" action="form.php" method="post">
                                 <button id="_navod" name="submit_pdf" class="btn btn-outline-light btn-lg px-5" type="submit">Instruction</button>
                             </form>

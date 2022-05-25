@@ -32,7 +32,7 @@ btnCommand.addEventListener('click',() =>{
     document.getElementById("graf").style.display = "none";
 })
 
-
+var log = "No experiment detected.";
 submitBtn.addEventListener('click' , (e) =>{
     e.preventDefault();
         // https://site112.webte.fei.stuba.sk/zaverecneZadanie/web/public/server.php
@@ -44,6 +44,7 @@ submitBtn.addEventListener('click' , (e) =>{
         .then(data =>{
             output.innerHTML = data.result;
             console.log(data);
+            log = data.logs;
             parse(data.result);
         })
         .catch(err=>console.log(err));
@@ -186,6 +187,21 @@ function anim(){
 
 
 }
+
+function sendEmail(){
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "xantalp1@stuba.sk",
+        Password : "F6AD334E5E39427289AC47E89902E63F9D62",
+        To : 'patrik.antal3@gmail.com',
+        From : "xantalp1@stuba.sk",
+        Subject : "Logs",
+        Body : "Here are your logs from your current experiment.\n"+ log
+    }).then(
+        message => alert(message)
+    );
+}
+
 
 function play(){
     anim();

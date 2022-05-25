@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $errorLog = "NONE";
     }
 
+    $log = "Name: ".$_POST['name']."; ". "Command: ".$_POST['command']."; ". "Status: ".$status."; ". "Error log: ".$errorLog;
     $logId = $db->insertSimulation($_POST['name'], $_POST['command'], $status, $errorLog);
     $file = fopen("log.csv", 'w');
     $array = $db->getSimulation($logId);
@@ -41,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     fputcsv($file, array_keys($array), ';');
     fputcsv($file, $array, ';');
 
-    echo json_encode(['status'=>$status,'name'=>$name,'result'=>$output]);
+    echo json_encode(['status'=>$status,'name'=>$name,'result'=>$output, 'logs'=>$log]);
 }
 
 
